@@ -1,5 +1,5 @@
 
-# Clinical Trial Patient Match Co-Pilot
+# MatchEngine Oncology
 
 ## Overview
 This project is a prototype for Hackathon 01, an AI-powered web app that helps clinicians quickly match patients to clinical trials using free-text profiles. Built using AI coding agents (e.g., Cursor with Vercel AI SDK), it demonstrates AI nativeness through NLP for input parsing, semantic matching, and explainable ML. The app is web-based, deployed on Vercel, and uses the BetterTStack framework for fast development.
