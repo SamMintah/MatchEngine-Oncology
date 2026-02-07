@@ -102,7 +102,14 @@ src/
 ├── app/          # Next.js pages (App Router)
 ├── components/   # Reusable UI components
 ├── api/          # Backend API routes
-└── types/        # TypeScript interfaces and types
+├── ai/
+│   └── prompts/  # AI prompt templates for LLM calls
+│       ├── extractPatientProfile.ts  # Parse free-text to structured data
+│       └── assessTrialFit.ts         # Evaluate patient-trial matches
+├── types/        # TypeScript interfaces and types
+└── ...
+docs/
+└── ai-design.md  # AI usage, limitations, and safety guidelines
 ```
 
 ## Development

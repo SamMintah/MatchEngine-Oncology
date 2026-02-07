@@ -119,3 +119,13 @@ This steering file contains rules and standards for this project. Kiro will foll
 - Deploy early and often to Vercel for testing (or AWS if integrating with Kiro ecosystem).
 - Use environment variables for configs (e.g., API endpoints).
 - Ensure app is responsive (mobile-first if possible, per spec).
+
+
+## Demo Constraints (24h Hackathon)
+- Focus on ONE disease: breast cancer (high trial volume, clear biomarkers: HER2, ER/PR, stage)
+- ONE synthetic patient persona for demo: "52yo female, Stage III HER2+, progressed on trastuzumab, ECOG 1"
+- THREE trial outcomes to display: perfect match / hard exclusion / uncertain (needs more data)
+- NO real API calls in demo - use mock data for speed and reliability
+- UI goal: <30 seconds from text input to ranked results
+- Explainability requirement: every match must show 1-sentence clinician-friendly reason
+- Scope limit: US trials only, English language, no EHR integration for prototype
