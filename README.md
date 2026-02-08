@@ -228,9 +228,6 @@ src/
 docs/
 ├── ai-design.md            # AI architecture
 ├── validation-guide.md     # Guardrail documentation
-├── cost-optimization.md    # Token reduction strategies
-├── performance-optimization.md
-└── ui-improvements.md
 
 .kiro/
 └── steering/
