@@ -12,6 +12,8 @@ Clinical trial matching is slow, opaque, and inefficient:
 
 **Our Focus**: Enable clinicians to input real-world patient profiles (messy free-text) and get transparent, explainable trial matches in <10 seconds.
 
+<img width="1717" height="919" alt="Screenshot 2026-02-08 at 2 09 47 AM" src="https://github.com/user-attachments/assets/0f5ae008-93ca-4c1f-bb49-ecfe45a11a57" />
+
 ## Key Features
 
 ### 🚀 Ultra-Fast Matching (<10s)
