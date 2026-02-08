@@ -33,7 +33,7 @@ Deterministic clinical logic that overrides AI when criteria are clear:
 - Auto-populates clinical notes field
 
 ### 🔍 Real Trial Data
-- 15 real trials from ClinicalTrials.gov (13 breast cancer, 2 lung cancer)
+- 100 real trials from ClinicalTrials.gov
 - JSON-based trial database for easy expansion
 - Filtered by cancer type and biomarker status
 
@@ -85,12 +85,11 @@ flowchart TB
 ```
 
 **Key Components:**
-- **Groq AI**: Ultra-fast LLM (llama-3.3-70b) for extraction and assessment
-- **OCR Integration**: Tesseract.js for document upload
-- **Smart Pre-Filtering**: Cancer type + HER2 status filtering before assessment
-- **Medical Guardrails**: Deterministic rules override AI for critical criteria
-- **Biomarker Inference**: Heuristics extract HER2/ER/PR from clinical text
-- **Real Trial Data**: 15 trials from ClinicalTrials.gov in JSON format
+- **Groq llama-3.3-70b**: Ultra-fast LLM for extraction and assessment
+- **JSON Trial Database**: 100 real trials from ClinicalTrials.gov
+- **Smart Pre-Filtering**: Cancer type + HER2 status reduce API calls
+- **Medical Guardrails**: 7 deterministic rules override AI when needed
+- **Biomarker Inference**: Auto-extracts HER2/ER/PR from clinical text
 
 
 ## Medical Guardrails & Validation
@@ -143,8 +142,7 @@ Automatically extracts biomarkers from clinical text when AI misses them:
 - **Cancer Type**: breast, lung, colorectal, prostate, other
 
 ### Current Limitations
-- **Breast Cancer Focus**: Optimized for HER2/ER/PR biomarkers (13 trials)
-- **Limited Trial Database**: 15 trials total (expandable via JSON)
+- **Breast Cancer Focus**: Optimized for HER2/ER/PR biomarkers
 - **US Trials Only**: No international trial support
 - **No EHR Integration**: Manual free-text input required
 - **Single LLM**: Groq only (no fallback if API down)
