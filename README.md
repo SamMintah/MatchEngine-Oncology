@@ -57,33 +57,34 @@ flowchart TB
     U["Clinician User"] --> F["Next.js Frontend"]
     F --> OCR["OCR Preprocess + Tesseract"]
     OCR --> F
+    F -->|1. Click Identify Matching Trials| ROUTE["POST /api/match"]
   end
 
   subgraph API_Layer["API Layer"]
-    F --> ROUTE["POST /api/match"]
-  end
-
-  subgraph AI_Layer["AI Layer"]
-    ROUTE --> EX["Extract Patient Profile (Groq)"]
-    ROUTE --> ASS["Assess Trial Fit (Groq)"]
-  end
-
-  subgraph Validation_Layer["Validation Layer"]
-    EX --> SAN["Sanitize + Infer Biomarkers"]
-    SAN --> VAL["Profile Validation"]
-    ASS --> GR["Medical Guardrails"]
-    GR --> SCORE["Score + Rank"]
-    SCORE --> OUT["Match Results"]
+    ROUTE --> EX["2. Extract Patient Profile (Groq)"]
+    EX --> SAN["3. Sanitize + Infer Biomarkers"]
+    SAN --> VAL["4. Profile Validation"]
   end
 
   subgraph Dataset_Layer["Dataset Layer"]
     DATA["ClinicalTrials.gov API"] --> DB["Local JSON Dataset"]
-    DB --> CT["Filter by Cancer Type"]
-    CT --> H2["HER2 Pre-Filter"]
+    DB --> CT["5. Filter by Cancer Type"]
+    CT --> H2["6. HER2 Pre-Filter"]
     H2 --> ROUTE
   end
 
+  subgraph AI_Layer["AI Layer"]
+    ROUTE --> ASS["7. Assess Trial Fit (Groq)"]
+  end
+
+  subgraph Validation_Layer["Validation Layer"]
+    ASS --> GR["8. Medical Guardrails"]
+    GR --> SCORE["9. Score + Rank"]
+    SCORE --> OUT["10. Match Results"]
+  end
+
   OUT --> F
+  F --> U
 ```
 
 **Key Components:**
