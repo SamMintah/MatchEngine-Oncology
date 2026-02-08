@@ -6,8 +6,6 @@ import { HfInference } from '@huggingface/inference';
 // Initialize Hugging Face client (suppress deprecation warning - still functional)
 const hf = new HfInference(process.env.HUGGINGFACE_API_KEY);
 
-const HUGGINGFACE_PROVIDER = process.env.HUGGINGFACE_INFERENCE_PROVIDER?.trim();
-
 // Model configuration for assessment only
 export const MEDICAL_MODEL = {
   name: 'medalpaca/medalpaca-7b',
@@ -34,7 +32,6 @@ JSON only:`;
 
     const response = await hf.textGeneration({
       model: MEDICAL_MODEL.name,
-      ...(HUGGINGFACE_PROVIDER ? { provider: HUGGINGFACE_PROVIDER } : {}),
       inputs: prompt,
       parameters: {
         max_new_tokens: 500, // Reduced from 800 for cost optimization
@@ -62,11 +59,7 @@ JSON only:`;
  * Check if Hugging Face API is available
  */
 export const isHuggingFaceAvailable = (): boolean => {
-  return !!process.env.HUGGINGFACE_API_KEY && !!HUGGINGFACE_PROVIDER;
-};
-
-export const getHuggingFaceProvider = (): string | undefined => {
-  return HUGGINGFACE_PROVIDER || undefined;
+  return !!process.env.HUGGINGFACE_API_KEY;
 };
 
 /**

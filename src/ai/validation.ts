@@ -35,12 +35,8 @@ export const applyMedicalGuardrails = (
 
   // Extract patient biomarkers
   const biomarkers = patient.biomarkers || {};
-  const biomarkerKeys = Object.keys(biomarkers).map(k => k.toLowerCase());
-  const biomarkerValues = Object.values(biomarkers).map(v => v.toLowerCase());
   
   const her2Status = extractBiomarkerStatus(biomarkers, 'HER2');
-  const erStatus = extractBiomarkerStatus(biomarkers, 'ER');
-  const prStatus = extractBiomarkerStatus(biomarkers, 'PR');
   
   // Extract trial requirements
   const trialText = `${trial.title} ${trial.briefSummary} ${trial.inclusionCriteria.join(' ')}`.toLowerCase();
